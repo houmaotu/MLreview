@@ -1,0 +1,4 @@
+superbised = label unsupervised = not labeled
+regression = result is number classification = result is classifier(class labels or categiroes)
+loss: L(true,output) -> loss val eg 01 squared err
+risk: expected loss  emprircal risk: risk on training sample
