@@ -1,0 +1,17 @@
+A tree classifier is a binary tree in which:
+      Each inner node is a rule of the form xi > ti.
+      The threshold values ti are the parameters which specify the tree.
+      Each leaf is a class label
+      
+classification: for rigion R_m classfy as the most occured
+splitting: split Rm to Rm1 and Rm2
+cost of split: Q = propotion of missclaffication after the split
+
+training step:
+for each rigion R_m, for each axis find best split point t_h, and choose the beat axis j, then split from axis j at t_j
+                best in terms of min Q
+
+Definictions:
+decision stump:  tree classifier of depth 1  (j,tj)
+
+will need so use esemble methods
