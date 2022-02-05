@@ -1,0 +1,55 @@
+idea: Decision by majority vote
+       g = sgn( sum f_i )
+       
+ensemble method: combining the predictions of many classifiers into a single vote
+weak learner:  perform only slightly better than random  
+
+methods boosting bagging random forests
+
+Boosting:
+    requirements: possible to train the weak learner on a weighted training set
+    adds weak learners one at a time
+    weight value is assigned to each training point
+    points classified correctly are weighte down, points classified incorrectly are weighte up
+    "each weak learner tries to get those points right which are currently not classified correctly"
+    
+e.g.
+decision stamp  f（x） = 1  x^(j) > t
+                        -1  x^(j) < t
+data (xi,yi) have weight wi
+
+we have weight missclassification err:
+    sum(w_i I(y_i != f(x_i|j,t)) ) / sum w_i
+    
+ADA Boost:
+initialize with equal weight w_i = 1/n
+for m
+  fit classifier with existing weight
+  err_m = sum(wi I(yi != g_m(xi)) /sum (wi)     wight propotion of wrongly classified points
+  alpha_m = lof(1-err_m/err_m)
+  w_i  = w_i exp(alpha_m I(y_i != g_m(x_i)))   increase weight on wrongly classified points
+  
+  
+output f(x) = sgm(sum  alpha_m g_m(x))
+
+
+
+
+Properties:
+Decision boundary is non-linear.
+Can handle multiple classes if weak learner can
+AdaBoost weights keep changing even if training error is minimal while most training algorithms terminate when training error reaches minimum
+test error typically keeps decreasing even after training error has stabilized at minimal value
+
+feature: dimensions of R are often called the features of the data
+feature selection: selecting features which contain important information
+
+AdaBoost with Decision Stumps can be used to perform feature selection.
+
+
+Note:
+CASCADE eg face recog
+All positive examples (= faces)
+Negative examples (= non-faces)
+
+use when imbalance classes and unquial costs
