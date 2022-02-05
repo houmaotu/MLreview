@@ -1,0 +1,58 @@
+Maximum Margin: generalization of Perceptron
+margin: distance to closest point in each class
+Maximum max the margin   put hyperplane in the middle! no ditribuction assmuption guess symmetric.
+definition:
+convex hull of a set of pointes C: conv(C)  the smallest convex set containing all points in C  凸包
+margin = min(d(H,conv(X-)),d(H,conv(X+)))    the closet distance to H
+classifier <vH,x> - c compare to 0
+
+Derivation:
+set ||vH|| = 0 , then <vH,x> - c > M <vH,x> - c < -M force the margin M
+not retrtict ||vH||, then <vH,x> - c > 1 <vH,x> - c < -1 force the margin M = 1/||vH||
+
+svm: support vector machine:
+    min||V_h||
+    st y_i(<vH,x_i>-c) >=1 
+    
+support vector: closest to the hyperplane on each side
+
+dual optimization problem:
+    max w(alpha) = sum alpha_i - 1/2 sum_ij alpha_i alpha_j y_i y_j <x_i,x_j>      alpha has dim n (number of x)
+    st alpha_i >=0 sum y_i aplha_i = 0
+    
+can use Lagrange to derive
+geometric intepretation:
+min margin is equivlant to min ||u-v|| , u in conv(+) v in conv(-) express u = sum alpha_i x_i in + area  u = sum alpha_j x_j in - area
+
+solve dual problem, back:
+
+Vh = u - v   = sum y_i alpha_i x_i            (difference between the u and v satisfy min ||u-v||)
+c = (max-<x,Vh> + min+<x,Vh>) /2             mean of shifts
+
+Note alpha_i = 1 then i is a support vector
+
+SVM Classifier:
+f(x) = sgn(sum y_i aplha_i <x_i,x>  - c)
+
+
+Soft-margin classifiers:
+want to generalize and deal with non separable 
+permit some point to lie on the wrong side of the margin
+
+then soft-margin optimization:
+min||V_h|| + gamma sum psi^2 
+    st y_i(<vH,x_i>-c) >=1 - psi_i           note psi should be xi, use psi to avoid confusion, called slack variables
+       psi_i >= 0
+                                                       
+                                             psi measure how wrong *distance beyond the margin or hyperplane)
+                                             gamma cost of being wrong          tuning paramater may use cross validation 
+                                             
+dual prombem:
+ max w(alpha) = sum alpha_i - 1/2 sum_ij alpha_i alpha_j y_i y_j (<x_i,x_j> + 1/gamma I(i=j))
+    st alpha_i >=0 sum y_i aplha_i = 0
+                                            
+classifier: f(x) = sgn(sum y_i aplha_i <x_i,x>  - c)      alpha_i != 0 is support vector (all points on the wrong side)
+                                            
+    
+
+
