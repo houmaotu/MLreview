@@ -40,3 +40,13 @@ L = f + lambda g
 
 barrir function for I(x>0) -1/t * log(-x)
  
+SUMMARY:
+min f(x)
+s.t. g_i(x) <= 0
+
+min L(x) = f(x) + sum lambda_i g_i(x)
+s.t.
+grad f(x) + lambda_x grad g_i(x) = 0
+lambda_i > 0
+lambda_i g(i) = 0
+g(i) <= 0
