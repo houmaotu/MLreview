@@ -1,0 +1,27 @@
+hyperplane in d dimentional linear space  is a subspace of d-1     note: hyperplane contain origin
+normal vec of hyperplane H={x in Rd | <x,VH> = 0} 
+
+distance d(x,H) = <x,VH> / ||VH|| = cos(theta) ||x||       note: salor product is of x vh is vh times  projection of x onto vh
+                                                                 theta is angle between x vh, so cos(theta) = <x,VH> / (||x|| ||VH||  )
+                                                                 <x,VH> is  projection of x onto vh
+                                                                 sign of cos(theta) or sign of <x,VH> decide which side is x
+                                                                 
+affine hyperplane: hyperplane with a shift   Hw = H+w    note: w is choose in the dicetion if vh  w = c vH
+                                                               which sice is x? sng(<x-w,vH>) = sgn(<x,vh> - c||vH||^2) 
+                                                                                if vH is unit , it becomes sgn(<x,vh> - c>)
+                                                                                intrepretation is the lenght of projection greater than the shift?
+                                                                                
+                                                                               
+linear classifier:  f_H(x) = sgn(<x,vh> - c>)    which size is x w.r.t the affine hyperplane
+linearly separable:  exist H  (or vh,c)  sgn(<x,vh> - c>)>0 x in A  sgn(<x,vh> - c>)<0 x in B      exist linear classifier has 100% accuracy
+
+Perception Algorithm:  idea: linear classifier   0 - 1 loss  minimize emprical rish
+homogenoous coordinates: z = (-c,H)  then f(x) = sng<(1,x)',z>
+Problems: emprircal risk piecewise constant  result is a cone when separable, it none then not separable
+Fix: replace pricewise constant to piecewise linear change 0-1 loss to I(f(x_i) != y_i) |z,(1,x)'|         multipli 0-1 risk by the abs val of g
+Perception cost: c_p(f) = sum_i  I(f(x_i) != y_i) |z,(1,x)'| 
+
+Algorothm: z k+1 = zj - alpha(k) grad C_p(z k)     note alpha is learning rate typically 1 or 1/k
+
+grad C_p(z k)  = sum I(f(x_i) != y_i) (-y_i) (1,x)'  batch pcpt
+fixed-increment single-sample Perceptron:  aplha = 1 increment point by point  
