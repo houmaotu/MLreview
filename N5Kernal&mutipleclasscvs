@@ -1,0 +1,27 @@
+Kernals:
+use non linear function to substitude scalor product:
+
+k(x,x') instead of <x,x'>
+e.g. RBF k(x,x') = exp(-|x-x'|^2 /(2 sigma^2))          RBF  = radial basis function sigma called band width
+
+
+formal def:
+
+exist phi(x) projects x into space F
+then k(x,x') = <phi(x),phi(x')>               essentially change to another space usually increase dim
+                                              note rbf kernal rise to infinite dim space
+
+kernal svm:
+min||V_h||_F + gamma sum psi^2 
+    st y_i(<vH,phi(x_i)>_F-c) >=1 - psi_i           note psi should be xi, use psi to avoid confusion, called slack variables
+       psi_i >= 0
+dual:
+ max w(alpha) = sum alpha_i - 1/2 sum_ij alpha_i alpha_j y_i y_j (k<x_i,x_j> + 1/gamma I(i=j))
+    st alpha_i >=0 sum y_i aplha_i = 0
+    
+classifier:
+f(x) = sgn(sum y_i aplha_i k<x_i,x>  - c) 
+
+
+multiple class:
+one versus one / one vsesus  all        both have Ambiguous regions.
