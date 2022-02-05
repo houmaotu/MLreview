@@ -1,0 +1,20 @@
+overfitting: The classifier adapts too closely to specific properties of the training data, rather than the underlying distribution
+
+Cross Validation Procedure (tuning paramater gamma):
+split train set validation set and test set
+train each gamma on train set
+Validat on validation set and choose smallest gamma
+tain on train set + validation set
+report error on test set
+
+
+K-fold
+set aside test set
+split train set into k block
+use each block in turn as validation set
+cpmpute the cv estimate risk  (mean of risk on block k with classifier trainied on the rest)
+report error on test set
+
+K=n : leave one out cross validation    loocv
+
+Common recommendation: K = 5 to K = 10
