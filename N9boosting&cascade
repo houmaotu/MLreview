@@ -53,3 +53,7 @@ All positive examples (= faces)
 Negative examples (= non-faces)
 
 use when imbalance classes and unquial costs
+
+build many classifiers
+counsequently teim the precentage of non face labels
+require classifiers allow high cost for false positive (face when not face), must have low false negative (not face say face)
