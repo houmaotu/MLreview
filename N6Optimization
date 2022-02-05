@@ -1,0 +1,42 @@
+Gradient descent for min:
+x_(n+1) = x_n - f'(x_n)           x_(n+1) = x_n - grad f(x_n)
+
+newton for root:
+x_(n+1) = x_n - f(x_n) / f'(x_n)
+
+newton for min:
+x_(n+1) = x_n - f'(x_n) / f''(x_n)        x_(n+1) = x_n - H^(-1) grad f(x_n)
+
+
+equalities as constraints
+min f(x)
+s.t. g(x) = 0
+
+solve
+grad f + lambda grad g = 0
+s.t. g = 0
+
+inequalitie:
+min f(x)
+s.t. g(x) <= 0
+
+ G: interior and boundary of g(x) <= 0
+ 
+ solve:
+ grad f = - lambda grad g 
+s.t. g <= 0
+    lambda = 0 if interior of G
+    lambda > 0 if on boundady
+    
+quiv to 
+s.t:
+g <= 0
+lambda >= 0
+lambda g = 0      called Karush-Kuhn-Tucker KKT condictions
+
+
+use Lagrangian: 
+L = f + lambda g
+
+barrir function for I(x>0) -1/t * log(-x)
+ 
