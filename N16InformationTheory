@@ -1,0 +1,6 @@
+information oberving X under P(x): J_p(x) = -log P(x)
+Shannon entropy  E_p(J_p(x)) = -sum P(x) logP(x) = H(P)
+Kullback-Leibler divergence:
+D_{kl} (P || Q)= E_p(J_p(x) - H(P) = sum P(x)log(P(x)/Q(x))
+
+The maximum entropy principle: choose the distribution with the highest entropy in P  (MLE for paramatric models)
