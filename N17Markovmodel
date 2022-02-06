@@ -1,2 +1,25 @@
 motilction Google’s PageRank Algorithm 
-rest is travial
+basics are skipped
+
+
+(discrete) hidden Markov model:
+markov chain with init Q transmission matix q
+emission distribution P(x|z)
+
+sampne z_1 ... from (Q,q) sample x_1 from z_1...
+
+e.g.
+  Filtering problem est Q(z_n = k | x)
+  Decoding problem est z
+  Learning problem est q and P( |z)
+  
+  
+  For filtering problem: use forward algorithm   Q_nk \propto a_nk = P(x_n|z_n = k) sum q_lk Q_(n-1)
+  
+  HMM and mixture models:
+    P(x_n | z_n = k) = P(x_n | theta_k)  -> pi(x_n) = sum Q(z_n = k) P(x_n |theta_k)
+    Then can use EM:
+      E  Transition probabilities State probabilities
+      M  component parameters
+  
+  
