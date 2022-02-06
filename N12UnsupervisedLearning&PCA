@@ -18,3 +18,5 @@ s.t. ||v|| = 1
 
 The first few eigenvectors are called principal components
 Application: Lossy data compression
+
+number of principal components choice: usually 2 or 3   or curve eigen val jumo down
