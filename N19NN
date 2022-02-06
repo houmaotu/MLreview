@@ -1,0 +1,7 @@
+
+val from last layer weighted sum to next layer, compute by activation g, get val of this layer and send to next layer ....
+
+Loss function, typicallyy cross entrophe ylog (y) + (1- y) log (1-y)
+
+computation:
+perform gradient descent with Backpropagation(basically chain rule) to reduce huge computational cost
