@@ -1,0 +1,20 @@
+UnsupervisedLearning = label not avail e.g. clustering，  dimsntion reduction
+
+dimention reduction:
+Project high dim to low dim
+
+Principal Component Analysis:
+    empirical covariance matrix of the data
+    eigen val eigen vec of matrix
+    choose d largest eigen val
+    paoject onto the span of eigen vec
+    
+ Idea max the variance of the projected data
+
+pca as optimization problem
+max <v,Sigma v>          variance of  projected data
+s.t. ||v|| = 1
+
+
+The first few eigenvectors are called principal components
+Application: Lossy data compression
