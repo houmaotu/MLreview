@@ -6,10 +6,10 @@ Project high dim to low dim
 Principal Component Analysis:
     empirical covariance matrix of the data
     eigen val eigen vec of matrix
-    choose d largest eigen val
-    paoject onto the span of eigen vec
+    choose d largest eigen val lambda 1-d
+    parject onto the span of eigen vec psi 1-d 
     
- Idea max the variance of the projected data
+ Idea max the variance of the projected data  x_iv = sum_j <x_i,psi_j> psj
 
 pca as optimization problem
 max <v,Sigma v>          variance of  projected data
