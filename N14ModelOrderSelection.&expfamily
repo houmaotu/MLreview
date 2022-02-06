@@ -1,0 +1,18 @@
+model order selection： deter number of clusters
+Approaches:
+Penalization approaches (only MLE overfits), Stability(resumpling), Bayesian methods(acts like penailzation)
+
+
+Penalization approache:
+    min -log L + phi(m)
+    AIC  m
+    BIC 1/2 mlon(n)    this penilize more
+    
+ Stability:
+ split to X' X''  get mixture pi' pi''
+ compute haed assignmens m' m'' using pi' pi'' on X''
+ score (K) = min(m' !=m'') under all permutations   (do the two mixtures get the same result?)
+ 
+ exp family
+ 
+p = h(x)/Z(theta) exp(<S(x),theta>)
