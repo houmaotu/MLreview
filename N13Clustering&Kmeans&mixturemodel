@@ -1,0 +1,32 @@
+Each data point belongs to exactly one group or class (cluster) denote mi = k
+e.g. image segmentation  partitioning an image into "coherent" regions
+
+K means:
+randomly choose K clusters center
+iterate:
+      assign x to nearest center
+      compute center as the mean in the cluster
+      
+Interpretation : K gaussian with identity var
+
+Mixtrure model:
+      theta_i ~ q
+      x_i ~ f(|theta_i)
+      
+Finite Mixure:
+      pi(x) = sum c_k p(x | theta_k)
+      
+   for clustering c_k： cluster size    p(x | theta_k) model of cluster
+  
+ see the true cluster m_k as latent variable
+ EM algorithm:
+ 1 E  estimate assignments m_k given c_k, theta_k
+                         assigmnent probablity: alpha_ik \propto c_k p(x_i | theta_k)
+ 2 M  given cluster assignment m_k, extimate paramater c_k, theta_k
+                        c_k = #points /n = sum a_ik / n
+                        MLE for theta_k
+                        e.g. gaissian weighted mean and weighted var
+                        
+ 
+
+    
