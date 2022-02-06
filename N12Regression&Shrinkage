@@ -1,0 +1,21 @@
+Linear Regression, Least Squares regression (min suqared err loss) beta = (x'x)^(-1) x'y
+
+Problem with dim high x'x almost sigular i.e. lambda_min/lambda_max so small then (x'x)^(-1) have high var
+
+Ridge  beta = (x'x + Lambda I )^(-1) x'y         Lambda tuning param  x'x + Lambda I is regularized version
+               this minimize ||y - xbeta||^2 lambda ||beta||^2  L2 norm
+               
+mean var trade-off  increase bias reduce variance
+
+
+
+LASSO for sparse regression:
+    LASSO  = Least Absolute Shrinkage and Selection Operator
+                    minimize ||y - xbeta||^2 lambda ||beta||       L_1 norm  LASSO
+                    
+L_p Regression  penalize ||beta||^p    L_p norm
+
+Bia var trade off : increase bias. decrease var or vice versa
+Misspecification: model not colpletely explain data  bias  
+to avoid misspecification, make the model more flexible but more flexible (more degree of freedom) model leads to more variance
+Prediction err = irreducible err + bias^2 + var
