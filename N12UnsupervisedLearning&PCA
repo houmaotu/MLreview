@@ -20,3 +20,7 @@ The first few eigenvectors are called principal components
 Application: Lossy data compression
 
 number of principal components choice: usually 2 or 3   or curve eigen val jumo down
+
+Note:
+data have to be centered 
+date usually need to be scaled
