@@ -1,0 +1,18 @@
+
+neighborhood graph: N = (V_n,W_n) neighbors edge weights
+
+Markov property: distribuction only depends on neighbors
+
+Markov random field undirected graphical model with Markov property
+
+e.g. p(x) = 1/Z exp(-H(x))  H is energy function can be paramatrized
+
+clique: fully connected subgraph
+
+THM:  Markov random fields factorize over cliques.
+
+Potts model: p(theta) \propto exp(beta sum w_ij I (theta_i != theta_j))
+
+Ising model: w_ij = 1
+
+MRFs can be used as smooothing priors (spatial smoothing)
