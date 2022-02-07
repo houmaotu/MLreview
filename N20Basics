@@ -1,0 +1,5 @@
+Neural Networks: functions      f(g(x))
+Graphcal Model:  distributions    p(x|y)p(y|z)
+
+
+Sigmoid  \sigma(x) = 1/(1+ exp(-x))
