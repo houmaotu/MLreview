@@ -1,0 +1,9 @@
+Rejection sampling
+Importance sampling
+MCMC Gibbs MG
+
+Variantional Inference:
+min phi(q,p)
+s.t. q\in Q
+find q closest to p  typically use KLD
+e.g. main firld for potts (bern for each node)
