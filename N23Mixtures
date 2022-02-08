@@ -1,0 +1,10 @@
+Bayesian mixture models   can be see as graphical model
+   z ~ mutinomial (c)  c~ direchlet theta~ q  x| theta,z  then use gibbs
+   Dirichlet distribution is congurate prior for multinomial
+Admixtures each observation  influenced by several components (e.g. topics)
+
+latent Dirichlet allocation:
+direchlet distribuction: bunch gamma(par,1)s with correspinding weight
+    e.g. text clustering pi(H) = sum c_k P(H | theta_k) c~ direchlet     called LDA  then conduct gradient descent
+    
+    
