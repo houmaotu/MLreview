@@ -1,0 +1,9 @@
+BoltzmannMachine:
+p(x) \propto exp(- sum w_ij x_i x_j - sum c_i x_i) 
+where weights are MRF graph
+i.e. potts model wth energu field
+
+bipartite graph: set V can be subdivided into two sets X Y such that all edges have one end in A and one end in B 二分图
+
+restricted Boltzmann machine RBM: BoltzmannMachine with bipartite graph
+counsequence : points in layer X indep given Y and vise versa.
