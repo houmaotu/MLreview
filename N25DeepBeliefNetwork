@@ -1,0 +1,15 @@
+explaining away
+x->z<-y    x y idep but x|z y|z are not indep
+coursequence: layer givev prev indep, given subsequent not indep
+
+complementary prior: prior as a layer "cancel out" independency:
+      for resersible Markov Chain   the stationsay state is the prior   or (RMB)
+      
+claim:     Using an “infinitely deep” graphical model given by the Gibbs sampler for the RBM as a
+            prior is equivalent to using the Y-layer of the RBM as a prior.
+            
+
+summary:
+    first two layer: RMB prior undirected   but can roll off to deep directed gibbs
+    other laters: drected
+    
