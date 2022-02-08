@@ -1,0 +1,29 @@
+Newral Network: represent a function
+feed-forward network:
+  f(x) =  f1 f2 f3 f4 ... (x)
+  f_k = ( ... phi ik (<wik, >)...)   layer is phi applied to weight avg of prev layer vals 
+                                      phi activaton function  sigmoid threshould(relu) constant linear etc
+                                      
+Feature Extraction:
+    function F data:  R^d
+    F is called feature meature map its dimentions are called features and this step is Feature Extraction
+    
+    data   F get feature     f1 f2 f3 f4  NN  get result
+    
+In multi-layer networks, the early layrs can be seen as Feature Extraction (give better results) e.g. object recognition
+                                                                                                      face recognition
+                                                                                                      
+e.g. autoencoder min(x - fx(w))^2  output same as input    nodes in the middle have fewer nodes then can compress input
+
+error measure: classification ylog(yhat)
+                regression    (y-y_hat)^2
+                
+with error measure problem becomes  min_w J(w)  train the weights
+
+
+Backpropagation is gradient descent applied to J(w) in a feed-forward network
+                    we (1) compute each zk from z_(k-1) and update weight of layer k from  last layer to k+1 laer
+derivtion is based on chain rule  (detailed skipped)
+
+    
+                                  
