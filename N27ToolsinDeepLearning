@@ -1,0 +1,10 @@
+1 Automatic differentiation : just chain rule  record the trace
+2 stohastic optimization: update theta with random data points (instead of all)  (sgd stihastic gradient descnet):
+                          Injection of noise is likely to kick θ out of saddle points and sharp local optima 
+                          may help prevent overfitting t
+                          Robbins-Monro： step size alpha_k  sum alpha_k^2 < infty  sum alpha_k = infty  e.g. 1/(1+k)
+                          methods of update: Momentum, AdaGrad (Second order approx), Adadelta(Gradient-based decay), Adam (Combinations)
+                          
+                          SGD is rigorous but sometimes slow
+                          
+                          
