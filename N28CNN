@@ -1,0 +1,40 @@
+convolutional newral networks:
+idea: local stats 
+use filter or convolution:
+    use say 3*3 to sweep and get new map
+    
+note: reduces spatial extent of activation map and picles near the edge
+
+      fix : padding: Add rows/cols of zeros to the input map
+      
+note: processes the same information repeatedly, wasteful if image smooth
+      
+      fix : stride : move multiple pixels
+      
+choice of filer sie: 1*1 3*3 5*5 7*7  note 1 can be used since the depth of activation stack (dim reduction)
+
+      
+trick： can use pooling layer(max/avg  pooling)
+
+  e.g. cnn_cpcpff: conv→pool→conv→pool→fc→fc
+  
+trick: drop out: prevent overfitting   have a probability of not fire this edge
+
+trick: inception: reduce cost    add a 1*1 before convolution  (to reduce dimension) of after pooling
+
+trick: retraining /transfer leadning    utilize models for similar problems retain deep layers or just freeze first few layers
+
+trick: res net   solve exploding and vanishing gradients(chain rule multiply gradients) (ormalization is another possible appproach)
+                 solve Degradation problem (deeper etworks have more layers)
+                 since layers naturally tend to identity transformation  learn x_(l+1) - x_l
+                 
+                 
+Some notes: tf.nn.softmax_cross_entropy_with_logits handle log 0
+
+trick: mean substracting   for datasets have different brightness
+
+Summary:
+layers: filter size, zero padding, striding
+optim: SGD, Adam, RMSProp
+Intermediate layer: pooling, dropout, normalization
+Monitoring:  validation data, tensorboard, classic debugging
