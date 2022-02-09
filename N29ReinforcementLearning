@@ -1,0 +1,66 @@
+Reinforcement learning:
+     map an input situation into an output action to maximize reward
+     TIME T:Agent take Action (A) interacting with an environment produce reward (R) state (S) 
+     TIME T+1 :Agent take action (A) ...
+     
+e.g. cart pole:
+state : position/velocity of cart; angle/velocity of pole
+Reward: 1 if not fall 0 if fall
+Action: right left move
+Goal: max reward
+
+Note: need to balance long(ish) range consequences, need to try unlikely actions sometimes
+
+exploration / exploitation: A random or believed-suboptimal action may not be good but we can learn from it
+exploration :  sacrifices short-term reward, but accrues information
+exploitation:  accrues near-term reward, but learns little new
+
+easy: environment do not change
+e.g. K slots machine with payoff unknown payoff param 
+definition:
+reward r_t action a_t previous
+value function q(a_t = k) = E(r_t | a_t = k)  expected reward
+optimal sequence: max_a q(a)
+goal: miminize regre  L(T) = sum max_a q(a) - E(\sum q(a_t)...
+
+Strategie:
+Greedy: only exploit  pick what you believe to be the best so far
+Random: only explore   pick at random
+all linear regret
+
+want sublinear regret:
+epsilon-greedy     epsilon probability of random explore otherwise greedy  (still linear)
+UCB: upper confidence bound: confidence interval on each µk small t more exploration
+                                                            large t more greedy exploitation  
+                             log(T)
+
+hard: environment change
+Markov Decision Process：S0,A0,R0,S1,A1,R1....
+P(s',r|s,a)   ' time t+1 other time 0
+
+Def 
+  return G_t = R_t + gamma R_t+1 + ... payoff with discount
+  state-value function v(s) for policy pi expected return
+  action-value function q(s,a) for policy pi expected return
+  
+we want Policy improvement
+         Policy evaluation 
+         Iterating between these two is policy iteration
+         
+Temporal Difference (TD) learning on policy:
+estimate of v(s) with TD err delta_t = r_t + gamma(v(s_t+1)) - v(st)
+update with step size: v(s_t) <- v(s_t) + alpha delta_t 
+
+Q learning (Off-policy TD control):
+initialize Q
+iter:
+  initilize s
+  choose A from s with policy with Q (e.g. epsilon greedy)
+  action
+  TD update Q
+  update s
+  
+  for big/continuous state/action space, parametrize them
+        
+
+
