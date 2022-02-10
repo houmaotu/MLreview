@@ -25,8 +25,9 @@ Bagging (Bootstrap aggregation): averages this prediction over a collection of b
 
 Bumping: bootstrap sampling to move randomly through model space  (boostrap samples and corredpong models choose one with loweat mean err)
 
-additive model: 
+additive model: y = sum f_j(x_j)
 
+trees: regression trees (use avg val) classificatio tree: use most ocured
 
                             
 
