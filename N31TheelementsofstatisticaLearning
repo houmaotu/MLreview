@@ -1,0 +1,36 @@
+LDA: Linear discriminant analysis:  classification problem 
+                                    QDA (quadratic) assume x|y=1 ~Normal x|y=-1 ~Normal 
+                                    LDA assume two normal have same full rank cov matrix  e.g. reduce #of feature in face recognition
+                                    Regularizd Discriminant Analysis: mix lda qda
+                                    
+Smoothing Splines:   e.g. Natural Cubic Splines basis function are truncated power series basis  (x-pai_k)^3  - (x-psi_K)-^2 / pai_k - psi_K
+                equiv to sum(y_i - g(x_i))^2 + lambda \int f''(t)dt   lambda 0 explora the data   lambda 1 least square
+                
+Kernal Smoother:  weighted average (defined by the kernel) of neighboring observed data. e.g. K(x_0,x) = D(|x_0-x|/lambda)  ...D(t) = (1 - |t|^3)+^3
+                                                                                              y(x_0) = sum K(x_0,x_i)y(x_i) / sum K(x_0,x_i)
+                                                                                              
+Local Linear Regression: a locally linear fit of the data 
+                            at point x_0, we have: min sum K(x_0,x_i)(y_i - alpha - beta x_i)
+                            
+                            for point x_0 and its estimate y_0, exist a line such that the Kernal weight avg is smallest
+                            
+Local Polinomial Regression:  Polinomial version above
+
+
+Bootstrap versus Maximum Likelihood:  bootstrap is a computer implementation of maximum likelihood, allows to compute standard err when no formula avail
+Bootstrap and Bayesian Inference: bootstrap distribution represents an (approximate) nonparametric, noninformative posterior distribution for our parameter
+
+
+Bagging (Bootstrap aggregation): averages this prediction over a collection of bootstrap samples
+
+Bumping: bootstrap sampling to move randomly through model space  (boostrap samples and corredpong models choose one with loweat mean err)
+
+additive model: 
+
+
+                            
+
+          
+
+                                    
+                                    
