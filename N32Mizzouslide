@@ -1,0 +1,19 @@
+1 sgd can have momentum: g =  1/m grad Q          without  thata <- theta - epsilon grad Q
+                         v <- alpha v - epsilon g
+                         theta <- theta_j + v
+                         
+                         m batch size, Q sum of loss wrt m data
+                         
+                         tune learning rate:
+                         RMDprop: depends on historical squared gradients with decay rate rho, r <- rho r+ (1-rho) (g.g) dim wise propro 1/sqrt(r)
+                         AdaGrad: depends on historical squared gradients, r <- r+ (g.g)dim wise propro 1/sqrt(r)
+                         Adam: r <- rho_2 r+ (1-rho_2) (g.g), s <- rho_1 r+ (1-rho_1) g   dim wise propro s/sqrt(r)
+                         
+2 : Proximal Gradient Descent e.g. for lasso min(|x|_1 + 1/2|x|_2^2)
+
+3: state space model:  Z Y    , y: ture process follow Markov assumption, z data depend on y  Y_t|T_(t-1), Z_t|Y_t
+                             filtering last Y_t| Z 1:t-1 , Forecast Y_t| Z 1:t   smoothing all y_t | all Z
+                             Kalman Filter: with normal assumpution have analiticaly result
+                             ensemble Kalman filter : matrix too large
+                                                     propagated forward through time
+                                                     give initial resemble at time 0, for eact time t, forcast and update y
