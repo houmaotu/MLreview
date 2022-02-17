@@ -33,3 +33,12 @@
                   Regularization (Weight Sharing, weights should be similar), Batch Size Selection(small at first large in the end), Momentum, Learning Rate
                   pretraining (RMB of each 2 layer, train one layer at a time) The DNN is highly nonlinear and non-convex. Thus, there is
                                         significant sensitivity to initial conditions solution in a reasonable place
+
+7 Rnn s_t =f (s_(t-1), theta),  y_t = g(s_t,theta_t,x_t)  back-propagation through time (BPTT)
+       Problem: vanishing gradient/exploding gradient   
+       LSTM: create time paths that gradientsnot vanish or explode  add memeory, candidate hidden state, output, forget,input
+       Echo State Network：y_t = f(V h_t)  h_t = (1-aplha)h_(t-1) + alpha g (Wh_(t-1) + Yx_t)
+       
+ 8GAN: Generative Adversarial Networks   generator: fool discriminator, discriminator  real or fake
+                                         sample noise set
+                                       
