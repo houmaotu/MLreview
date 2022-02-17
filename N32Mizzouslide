@@ -17,3 +17,19 @@
                              ensemble Kalman filter : matrix too large
                                                      propagated forward through time
                                                      give initial resemble at time 0, for eact time t, forcast and update y
+                                                     
+4:dim recude    Non-Negative Matrix Factorization (NMF) X= WH (approximately),H has way lower din  (high dimensional data are better represented in lower
+                                                                                       dimensions by nonlinear methods )
+                Local Linear Embedding (LLE):  point x_i represent as weight ave of k nearest neighbor min |x_i - sum_k w_ik x_k|
+                                               find y in lower dim min sum_i|y_i - sum_k w_ik y_k|
+                Laplacian Eigenmaps (LE):    adjacency graph of points, neighbor if near enough or K nearest, log weight propro |x_i-x_i|^2
+                   preserve local information   dicompost L =  D-W, D diganal is sum of row weights Lf = lambda Df   choose fiest f x -> f_i(x)
+                   
+5 GP:  z = y + epsilon, y is gaussian process  or y(x) = f(x), f(x) ~ GP(m(x),c(x.x'))  note functions non paramatric
+                                              typical cov form exponential, Gaussian, Mat´ern, power
+        use VI id deep GP
+                                             
+6 feedforward NN: Feature normalization per sample or global, penalty, dropout, Regularization (Early Stopping, stop when fail to improve on validation set after givem epochs),
+                  Regularization (Weight Sharing, weights should be similar), Batch Size Selection(small at first large in the end), Momentum, Learning Rate
+                  pretraining (RMB of each 2 layer, train one layer at a time) The DNN is highly nonlinear and non-convex. Thus, there is
+                                        significant sensitivity to initial conditions solution in a reasonable place
