@@ -1,0 +1,74 @@
+BQ: q问了ddl和有没有follow external trends和如何follow trends
+
+sort algorithm:
+  insertision:   check num smaller than prev if smaller move till in place  (like insert 1 by 1) O(n^2)
+  selection:  check smallest O(n^2)
+  quick:  pick pivit smaller on 1 side, larger on other side  worst O(n^2) avg O(nlogn)
+  merge sort:  split to 2 recursive call , merge the sorted   O(nlog n)
+  bubble sort: compare 2, switch is order not correct, one pass put the largest to the end, O(n^2)
+  
+how to design
+
+logistic vs 各种 tree?
+
+perrformance matric inAB testing
+
+how to feature selection/engineering
+
+difference of Bayesian inference mle
+
+difference of generative/discriminative model
+
+explain RNN LSTM attention transformer bert
+
+difference between  gradient booting tree and random forest\
+
+difference between Adam and other optimizers
+
+ Describe BART and BERT
+ 
+What is layer normalization and the difference from batch normalization
+
+Explain why RNN has vanishing gradients and why LSTMs could mitigate this issue
+
+implement一个很简单的beam search
+
+time series forcasting的model
+
+什么是stochastic gradient descent. 和gradient descent有什么区别
+
+什么是stochastic gradient descent. 和gradient descent有什么区别
+
+什么是SVM。what does Support Vector stand for. 什么是kernal trick
+
+ 有哪些regularization方法（L1，L2，dropout）。什么是dropout，为什么可以regularize
+ 
+ 什么是stochastic gradient descent. learning rate应该怎么决定。当batch size增加时，learning rate应该增加还是减小. 1
+
+什么是batch norm。有什么用
+
+什么是dropout。dropout的过程中activation的input会比没有dropout要小，因为一些上一层的neuron没有contrbute，这个时候怎么办。testing的时候要不要dropout。
+
+NLP翻译句子的时候，如果有ground truth，那么loss function是什么
+
+有哪些feature selection方法。PCA具体怎么做
+
+ 什么是SVM。什么是kernal trick
+ 
+  basic assumptions of logistic regression, logit function, derive loss function for logistic regression
+  
+  derive optimization process of logistic regression (gradient descent), what is learning rate in GD? how to initialize learning rate, impact of too large or too small.
+  
+  Convex vs non-convex problem, what is the impact on model training, learning rate and how to improve convergence rate for non-convex
+  
+   Metrics for classification problem,  how to derive ROC, precision, recall, f1
+   
+  Bias VS variance tradeoff
+    
+ Details of classification algorithms, difference of bagging and boosting, describe how random forest work
+   
+Numerical optimization approaches used in Deep Learning, why one works better than the other in general
+
+What is gradient clipping, what is gradient vanishing? how to handle gradient vanishing problem?
+ 
+ How to fine tune or improve a RNN model if the accuracy is not good on training set
