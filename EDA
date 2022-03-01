@@ -1,0 +1,53 @@
+EDA general
+https://www.kaggle.com/abdokamr/eda-by-seaborn-feature-engineering-for-beginners
+
+example
+https://www.kaggle.com/danielobiri/expedia
+
+#1. Dataset
+  data.describe()
+  data.isnull().any()
+  data.isnull().sum()
+  
+  refined_data.drop_duplicates(inplace=True) #rm duplicate
+  refined_data.prop_booking_bool.value_counts()  #check balance
+  
+#2 visualization
+
+#countinious hist and others
+
+numerical_features = ['Math_Score', 'Reading_Score', 'Writing_Score']
+data[numerical_features].hist(figsize=(15,10))
+sns.histplot(data= data, x= 'Math_Score', hue= 'Gender', multiple= 'stack')
+sns.distplot(data['Math_Score'])
+sns.boxplot(data= data, x= 'Math_Score')
+sns.violinplot(data= data['Reading_Score'], ax= axes[1])
+
+#categorical bar and others
+data[col].value_counts()
+sns.countplot(x= 'Race/Ethnicity', data= data)
+
+sns.barplot(x= data['Race/Ethnicity'].value_counts().index,
+           y= data['Race/Ethnicity'].value_counts().values)
+           
+plt.pie(values ,labels = labels ,autopct='%1.1f%%') 
+
+#multivariate 
+#cor and headmap
+corr_matrix = data[numerical_features].corr()
+corr_matrix 
+
+mask = np.zeros_like(corr, dtype=np.bool)
+mask[np.triu_indices_from(mask)] = True
+
+f, ax = plt.subplots(figsize=(6, 4))
+sns.heatmap(corr, mask=mask, vmax=1, center=0, annot=True, fmt='.1f',
+            square=True, linewidths=.5, cbar_kws={"shrink": .5});
+#other            
+plt.scatter(data['Math_Score'], data['Writing_Score'])
+sns.jointplot(data= data, x= 'Reading_Score', y= 'Writing_Score', kind= 'scatter'
+sns.pairplot(data[numerical_features])
+
+# lmplit and other countineous plots by variable
+sns.lmplot(data= data, x= 'Reading_Score', 
+          y= 'Writing_Score', hue= 'Race/Ethnicity', fit_reg= False)
