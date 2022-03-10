@@ -1,0 +1,128 @@
+https://stanford-cs329s.github.io/syllabus.html
+
+0 Overvire
+ml system design: interface ->(data + ml algorithm) -> infrastructure -> hardware
+                    (reliable,scalable,matainable,adaptable)
+                    want fast inference (predictions), low latency, shifting data, fairness, Interpretability
+
+1 Fundamentals
+  tasks: regerssion classification (binary, multiclass hign or lor cardinality,multilable can belong to multi lab)
+  Business objectives: Directly: increasing sales (ads, conversion rates), cutting costs 
+                       Indirectly: increasing customer satisfaction, increasing time spent on a website
+
+  Rhases of ML adoption: Simplest ML models :validate hypothesis and pipeline
+                         Optimizing simple models : frature engineering ...esembling ...
+                         Complex ML models
+
+ Decoupling objectives: minimize the spread of misinformation, maximize revenue,  maximize engagement(good)
+ 
+  e.g. newsfeed: Filter out spam, Filter out NSFW content, (Filter out misinformation), (Rank posts by quality), Rank posts by engagement
+                easier for training, tweak, maintainence
+         excercise: build  users trending hashtags (objective, measure , ground truth, constraint, simplest model, how to personalize)
+         
+  example: Predict Value of Homes On Airbnb
+           data and features:   
+                    location,  country, market, neighborhood and various geography features
+                    price,    nightly rate, cleaning fees, price point relative to similar listings
+                    abailbility, Total nights available, % of nights manually blocked
+                    bookablity, Number of bookings or nights booked in the past X days
+                    quality,  Review scores, number of reviews, and amenities
+           Prototyping and Training:
+                    impute ,issing data
+                    encode categorical: 
+                                       cardinality high, ordinal encoding, encoding by frequency count of each category.
+                                       card low: one hot
+           Model selection: Note: interpretable (insurance myst  interpretable wo avoide discrimination, image classification dont need)
+   example: Twitter's Trending Hashtags Solution
+              1 business objective:  Click-through-rate,  Interactions with the hashtag, Usage of the hashtag, The user’s engagement
+                note we want to balance performance gain & cost
+              2 ml objective Accuracy Latency(non lag ) Non-blocking(doesn’t affect existing features on the platform)
+              3 def: scope: trending hashtags vs identifying trending topics
+                     def: used more in prioed of time  hashtags vs news often enough (not only increase)
+                     after event decay
+                eval: old sets or mannual vs trend sets
+              4 model:
+                 rule based: counts and # changed   Period length  Time window  (NLP merge tag bot detect weight e.g. trysted fake nsfw)
+                 ml system: tpoic modeling: hashtags that appear together in a post are similar
+                                            hashtag2vec to group 
+                            bot detection/nsfw detection
+                 other consideration: Localization and personalization
+                                            
+                
+                
+                     
+ 
+         
+ 2 data engineering: source: user ,system, Internal databases(users, inventory, customer relationships), 3rd party
+ 
+                     ETL (Extract, Transform, Load)
+                     
+                     
+ 3 training data:
+    coolect, store, explore/transform,aggregate/label, learn
+    
+    labeling: hand, Programmatic labeling, Weak supervision, semi supervision, active learning, transfer learning
+    
+    note hand Label multiplicity : comprises the longest substring
+           Programmatic: Labeling Function encode subject matter expertise to
+    
+    sampling:
+    class imbalance:  Choose the right metrics 
+                      under/over salmpling (Tomek Links, find pair and del, SMOTE, convex (〜linear) combinations of existing points
+                      Cost-sensitive learning, Class-balance loss, Focal loss
+
+    
+    
+    
+    
+    4 data leakage: 
+                   Splitting time-correlated data randomly instead of by time
+                   Data processing before splitting : Split your data before scaling/filling in missing values
+                                                      Split even before any EDA to ensure you’re blind to the test set
+                   Poor handling of data duplication before splitting: Deduplicate data before splitting
+                                                                        Oversample after splitting
+                   Group leakage: Understand your data and keep track of its metadata
+                   Leakage from data generation & collection process: Data normalization + subject matter expertise
+              derection: Measure correlation Feature ablation study Monitor model performance as more features are added
+       egieneer good feature:
+                   Feature importance and Feature generalization
+                     e.g. xg boost feature score
+                    SHAP: SHapley Additive exPlanations
+         Split data by time instead of doing it randomly.
+    If you oversample your data, do it after splitting.
+    Use statistics/info from the train split, instead of the entire data, for feature engineering: scaling, normalizing, handling missing values, creating n-gram count, item encoding, etc.
+    Understand how your data is generated, collected, and processed. Involve domain experts if necessary.
+    Keep track of data lineage.
+    Understand feature importance to your model.
+    Measure correlation between features and labels.
+    Use features that generalize well.
+    Remove stale features from your models.
+    
+    5 model selection
+    Avoid the state-of-the-art trap
+      Start with the simplest models
+      Avoid human biases in selecting models
+    Evaluate good performance now vs. good performance later
+    Evaluate trade-offs
+    Understand your model’s assumptions
+    ESEMBLE RORKS
+
+    
+    
+
+                    
+
+
+           
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
