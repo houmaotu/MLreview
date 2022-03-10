@@ -1,0 +1,68 @@
+I. information and data：5分钟
+II. feature engineering：10分钟
+IV. model：15分钟
+V. evaluation：5分钟
+
+如果你被问到的问题就是 现在给你一个spotify，请给我设计一个音乐推荐系统, period.
+你一定说巧妇难为无米之炊，我首先需要历史数据。
+基本上最能用的历史数据可以被再细分为三个主要的table
+1. interaction table or log table, 即每一个点击，每一个购买，每一个评价，都是以一个(user, item) pair的格式记录下来的
+(1) 每一条记录，是可以包含some contextual information的，比如时间戳，音乐听了多久，购买花了多少时间，等等，要动脑筋想想什么信息是有用的，尽量多log下来
+(2) log可能不止记录了购买信息，还有查看信息，scroll down看到但未被点击信息，都是indicate different level of preference
+2. dimention table: user, 即每一个user是有自己的metadata信息的，比如年龄，性别，地域等等demographic信息
+3. dimention table: item, 和上面一样，只不过是item的metadata
+我一般不会在这个stage对item做embedding即向量化，而是存最原始的raw数据
+---Feature Enginneering + Modeling
+之前把这两个分开的原因是面试官可能会分别问这两个的问题
+但实际上，你的feature engineering一定是要为model服务的
+这里给出我经常会使用的几种简单的推荐系统模型
+(0). rule based model (难易程度1, make sense程度5)
+(1). 转化成classification/regression 模型 (难易程度2, make sense程度5)
+(2). matrix factorization (难易程度3, make sense程度2)
+(3). facorization machine (难易程度3, make sense程度3)
+(4). wide and deep learning (难易程度4, make sense程度4)
+我个人最喜欢的，而且觉得比较稳妥的是(0)+(1)，说的好是绝对没问题的
+至于(2)(3)(4)网上有大把的资料，但你不能看一篇paper或者video就上了，一定要谨慎想好可能遇到的问题，比如
+- matrix factorization可能会问你怎么加进user and item metadata, 你的retrain plan是什么
+- wide and deep learning可能会问你deep part的神经网络怎么搭的，为什么
+一句话追求fancy就要担着玩儿大了的风险
+对于(0)来说，作为一个basis model有提到的价值，在处理cold start的时候是很有用的，但不可恋战一定尽快带过
+rule无外乎根据两个heuristic
+- 对user_i 找到和ta类似的user，看看别人买了什么，推荐给ta
+- 对user_i买的item_j, 找到类似的东西，推荐给ta
+这里面涉及的知识点就是怎么定义“类似”，即需要一个distance metric，这点大家去网上找吧，很多的similarity metrics
+重点是(1)，这里依然拿spotify music 推荐当例子那么如果转化成一个binary classification问题，我们就要拿出所有的music listening history log, 即tuple of (user, item, context)，
+比如(berserker888, Titanium, 2019-01-01:12:00:00)当做我们的positive case，即y值为1
+那我听了这一首歌，就没有听剩下的所有歌，那我在这个context下所有没听的歌理论上都是negative case, 这里要知道unbalanced data的危害以及一种random sample negative case的逻辑。
+同样可以把问题转化成regression问题，就像之前说的，我看了没有听，我听了，和我压根没看的东西代表着3种preference level.
+下面简短启发一下feature的展开，user, item, context都是需要vectorize化的
+最简单的就是直接join user, item dimension table拿到metadata。
+但有的时候比如item是视频图像或者自然语言，就需要我们通过一些方法，比如pretrained deep learning model take bottleneck layer，请大家自行搜索word embedding和image embedding
+稍微tricky一点的是contextual feature，这里可能需要aggregate log来达到目的，我建议大家提前想好一些feature，给一个例子：has user_i listened to item_j's category in the past week at night?
+---Evaluation
+一定要区分statistical metric和business metric
+前者是你训练模型时候定义的metric，主要用来tune hyperparameter的，比如accuracy, F1-score...
+后者定义你的模型是否有意义的metric，比如推荐歌单平均听的时长
+一般后者意义更大，更会被问。因为是无法直接直接optimize的，只能通过ab testing才测试，所以也有可能会被问到一点点experiment design的知识
+写在最后的话：
+
+eg1 recommendation youtube video
+https://www.youtube.com/watch?v=uF1V2MqX2U0
+problem build from small (100 ueser and develp) or big (today's)
+  for small: A -> 1
+             B -> 1 then  A.B similar
+             B -> 2 then recommend 2 to A
+             C not 1 then dont recommend 2 to 1  (collarbetrative filter: watch the same thing will love same thing activity build)
+                                                 (other attributes .... )
+  start with no date: approx   recent popolar or online recommend and collect feedback
+   
+  for big: for user who have viewed
+           one user feature vec   ________
+           set of users matrix
+            one video   _____________ 
+            set of veseios matrix
+            project in to place and 
+            
+            filtering : generate candidates
+                                                 
+
